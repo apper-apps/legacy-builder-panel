@@ -157,5 +157,3 @@ class FeatureService {
 }
 
 export default new FeatureService();
-
-export default new FeatureService();
