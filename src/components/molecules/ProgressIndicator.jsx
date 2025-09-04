@@ -17,13 +17,12 @@ const ProgressIndicator = () => {
   }, []);
   
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 h-1 bg-navy-100">
+<div className="fixed top-0 left-0 right-0 z-50 h-1 bg-navy-100">
       <motion.div 
         className="h-full bg-gradient-to-r from-gold-500 to-gold-600"
-        style={{ scaleX: scrollProgress }}
+        style={{ scaleX: scrollProgress, transformOrigin: "left" }}
         initial={{ scaleX: 0 }}
         transition={{ ease: "easeOut" }}
-        transformOrigin="left"
       />
     </div>
   );
