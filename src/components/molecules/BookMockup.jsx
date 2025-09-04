@@ -14,13 +14,24 @@ const BookMockup = ({ className = "" }) => {
         <div className="absolute -bottom-4 left-4 right-4 h-8 bg-black/20 rounded-full blur-xl transform scale-90"></div>
         
         {/* Book Cover */}
-        <div className="relative w-80 h-96 mx-auto transform rotate-y-5 shadow-2xl rounded-r-lg overflow-hidden bg-gradient-to-br from-navy-600 via-navy-700 to-navy-800">
+<div className="relative w-80 h-96 mx-auto transform rotate-y-5 shadow-2xl rounded-r-lg overflow-hidden">
           {/* Book Spine */}
-          <div className="absolute left-0 top-0 w-4 h-full bg-gradient-to-b from-navy-800 to-navy-900 shadow-inner"></div>
+          <div className="absolute left-0 top-0 w-4 h-full bg-gradient-to-b from-gray-700 to-gray-900 shadow-inner z-10"></div>
           
-          {/* Cover Content */}
-          <div className="p-8 h-full flex flex-col justify-between text-white relative z-10">
-            {/* Top Section */}
+          {/* Book Cover Image */}
+          <img 
+            src="/ebook-cover.jpg" 
+            alt="Family Business Harmony Quick-Start Guide" 
+            className="w-full h-full object-cover"
+            onError={(e) => {
+              // Fallback to original design if image fails to load
+              e.target.style.display = 'none';
+              e.target.nextSibling.style.display = 'block';
+            }}
+          />
+          
+          {/* Fallback Content (hidden by default) */}
+          <div className="absolute inset-0 bg-gradient-to-br from-navy-600 via-navy-700 to-navy-800 p-8 h-full flex flex-col justify-between text-white" style={{display: 'none'}}>
             <div>
               <div className="w-16 h-16 bg-gold-500 rounded-lg mb-6 flex items-center justify-center">
                 <span className="text-2xl font-bold text-navy-900">FB</span>
@@ -35,7 +46,6 @@ const BookMockup = ({ className = "" }) => {
               </h2>
             </div>
             
-            {/* Bottom Section */}
             <div>
               <div className="border-t border-gold-400/30 pt-4">
                 <p className="text-gold-300 font-medium">Coach IanB</p>
@@ -43,10 +53,6 @@ const BookMockup = ({ className = "" }) => {
               </div>
             </div>
           </div>
-          
-          {/* Decorative Elements */}
-          <div className="absolute top-0 right-0 w-32 h-32 bg-gold-400/10 rounded-full -translate-y-16 translate-x-16"></div>
-          <div className="absolute bottom-0 left-0 w-24 h-24 bg-gold-400/10 rounded-full translate-y-12 -translate-x-12"></div>
         </div>
       </motion.div>
     </div>
